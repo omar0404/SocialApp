@@ -25,7 +25,12 @@ const PostDetails = ({ route }: Props) => {
   }, [post.id]);
   const renderComments = () => {
     if (!comments.length) {
-      return <Text style={style.noCmnts}> No Comments</Text>;
+      return (
+        <Text testID="no_comments" style={style.noCmnts}>
+          {' '}
+          No Comments
+        </Text>
+      );
     }
     return (
       <View>
@@ -33,7 +38,7 @@ const PostDetails = ({ route }: Props) => {
           {comments.length} {comments.length > 1 ? 'Comments' : 'Comment'} :{' '}
         </Text>
         {comments.map(({ name, body, id }) => (
-          <View key={id} style={style.commentContainer}>
+          <View testID="comment" key={id} style={style.commentContainer}>
             <UserAvatar name={post.user.name} />
             <View style={style.commentWrapper}>
               <Text style={style.commentName}>{name}</Text>
