@@ -1,5 +1,5 @@
-import React, {useEffect, useRef} from 'react';
-import {Animated, StyleSheet, Text} from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { Animated, StyleSheet, Text } from 'react-native';
 
 export function WithSplashScreen({
   children,
@@ -17,7 +17,7 @@ export function WithSplashScreen({
   );
 }
 
-export const Splash = ({isAppReady}: {isAppReady: boolean}) => {
+export const Splash = ({ isAppReady }: { isAppReady: boolean }) => {
   const containerOpacity = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
@@ -34,7 +34,8 @@ export const Splash = ({isAppReady}: {isAppReady: boolean}) => {
   return (
     <Animated.View
       collapsable={false}
-      style={[style.container, {opacity: containerOpacity}]}>
+      pointerEvents={'none'}
+      style={[style.container, { opacity: containerOpacity }]}>
       <Text style={style.text}>Social App</Text>
     </Animated.View>
   );
